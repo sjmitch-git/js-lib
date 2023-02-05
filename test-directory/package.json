@@ -10,6 +10,6 @@
   "author": "Stephen Mitchell",
   "license": "ISC",
   "dependencies": {
-    "@smitch/js-lib": "^0.2.1"
+    "@smitch/js-lib": "^0.3.0"
   }
 }
