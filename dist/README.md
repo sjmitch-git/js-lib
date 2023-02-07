@@ -102,4 +102,47 @@ import { scrollToBottom } from "@smitch/js-lib";
 scrollToBottom(id);
 ```
 
+**randomColor**  
+Returns a random color (hex, rgb, hsl).
+
+```js
+import { randomColor } from "@smitch/js-lib";
+
+console.log(randomColor()); // returns hex color (#fc90ec)
+console.log(randomColor("hex")); // returns hex color (#fc90ec)
+console.log(randomColor("rgb")); // returns rgb color (rgb(119,73,119))
+console.log(randomColor("hsl")); // returns hsl color (hsl(299, 50%, 50%))
+```
+
+---
+
+### Maths
+
+**formatNumber**  
+Format a number with commas as thousands separators.
+
+```js
+import { formatNumber } from "@smitch/js-lib";
+
+formatNumber(405029888); // 405,029,988
+```
+
+**randomNumber**  
+Generate a random number.
+
+```js
+import { randomNumber } from "@smitch/js-lib";
+
+console.log("randomNumber max = default = 100", randomNumber());
+console.log("randomNumber max = 10", randomNumber(10));
+console.log("randomNumber max = 100", randomNumber(100));
+console.log("randomNumber max = 1000", randomNumber(1000));
+console.log("randomNumber max = 10000", randomNumber(10000));
+console.log("randomNumber max = 100000", randomNumber(100000));
+console.log("randomNumber max = 1000000", randomNumber(1000000));
+console.log("randomNumber max = 10000000", randomNumber(10000000));
+console.log("randomNumber max = 100000000", randomNumber(100000000));
+console.log("randomNumber max = 1000000000", randomNumber(1000000000));
+```
+
 ---
