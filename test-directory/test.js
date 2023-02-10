@@ -9,6 +9,7 @@ import {
   randomNumber,
   formatNumber,
   geoDistance,
+  formatCurrency,
 } from "@smitch/js-lib";
 
 /* 
@@ -16,8 +17,23 @@ ARRAY tests
 */
 
 /* removeDuplicates - remove duplicates from array */
-console.log(removeDuplicates([4, 2, 3, 1, 4, 1, 2, 5, 3, 4]));
-
+console.log(
+  removeDuplicates([4, 2, 3, 1, 4, 1, 2, 5, 3, 4]).sort((a, b) => a + b)
+);
+console.log(
+  removeDuplicates([
+    "mike",
+    "charlie",
+    "ken",
+    "cindy",
+    "mike",
+    "charlie",
+    "ken",
+    "cindy",
+    "ken",
+    "cindy",
+  ]).sort()
+);
 /* 
 STRING tests 
 */
@@ -76,3 +92,7 @@ console.log(
   "geoDistance",
   geoDistance(51.5072, 0.1276, 40.7128, 74.006, "nautical")
 );
+
+console.log(formatCurrency(99, "INR"));
+console.log(formatCurrency(99.54, "INR", "code"));
+console.log(formatCurrency(99.54, "INR", "name"));

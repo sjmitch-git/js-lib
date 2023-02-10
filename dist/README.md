@@ -127,6 +127,17 @@ import { formatNumber } from "@smitch/js-lib";
 formatNumber(405029888); // 405,029,988
 ```
 
+**formatDecimals**  
+Format decimal places. Default is 2.
+
+```js
+import { formatDecimals } from "@smitch/js-lib";
+
+formatDecimals(99); // 99.00
+formatDecimals(9934.7645, 0); // 9935
+formatDecimals(9934.7645, 6); // 9934.764500
+```
+
 **randomNumber**  
 Generate a random number.
 
@@ -137,12 +148,8 @@ console.log("randomNumber max = default = 100", randomNumber());
 console.log("randomNumber max = 10", randomNumber(10));
 console.log("randomNumber max = 100", randomNumber(100));
 console.log("randomNumber max = 1000", randomNumber(1000));
-console.log("randomNumber max = 10000", randomNumber(10000));
-console.log("randomNumber max = 100000", randomNumber(100000));
-console.log("randomNumber max = 1000000", randomNumber(1000000));
-console.log("randomNumber max = 10000000", randomNumber(10000000));
-console.log("randomNumber max = 100000000", randomNumber(100000000));
 console.log("randomNumber max = 1000000000", randomNumber(1000000000));
+console.log("randomNumber max = 255", randomNumber(255));
 ```
 
 **geoDistance**  
@@ -152,10 +159,48 @@ Find the distance between 2 geo locations (miles, km, nautical miles).
 import { geoDistance } from "@smitch/js-lib";
 
 /* London to New York */
-console.log("geoDistance", geoDistance(51.5072, 0.1276, 40.7128, 74.006));
-console.log("geoDistance", geoDistance(51.5072, 0.1276, 40.7128, 74.006, "km"));
+console.log("geoDistance", geoDistance(51.5072, 0.1276, 40.7128, 74.006)); // 3461.021586418985 miles
+console.log("geoDistance", geoDistance(51.5072, 0.1276, 40.7128, 74.006, "km")); // 5569.9743239738755 km
 console.log(
   "geoDistance",
   geoDistance(51.5072, 0.1276, 40.7128, 74.006, "nautical")
-);
+); // 3005.5511456462464 nautical miles
+```
+
+**round**  
+Round number to nearest integer.
+
+```js
+import { round } from "@smitch/js-lib";
+
+console.log("round", round(51.5072)); // 52
+```
+
+**roundUp**  
+Round UP number to nearest integer.
+
+```js
+import { roundUp } from "@smitch/js-lib";
+
+console.log("round", roundUp(51.5072)); // 52
+```
+
+**roundDown**  
+Round DOWN number to nearest integer.
+
+```js
+import { roundDown } from "@smitch/js-lib";
+
+console.log("round", roundDown(51.5072)); // 51
+```
+
+**formatCurrency**  
+Format currency with symbol, code, or name.
+
+```js
+import { formatCurrency } from "@smitch/js-lib";
+
+console.log(formatCurrency(99, "GBP")); // £99.00
+console.log(formatCurrency(99, "GBP", "code")); // GBP 99.00
+console.log(formatCurrency(99, "GBP", "name")); // 99.00 British pounds
 ```
