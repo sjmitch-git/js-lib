@@ -159,12 +159,12 @@ Find the distance between 2 geo locations (miles, km, nautical miles).
 import { geoDistance } from "@smitch/js-lib";
 
 /* London to New York */
-console.log("geoDistance", geoDistance(51.5072, 0.1276, 40.7128, 74.006)); // 3461.021586418985
-console.log("geoDistance", geoDistance(51.5072, 0.1276, 40.7128, 74.006, "km")); // 5569.9743239738755
+console.log("geoDistance", geoDistance(51.5072, 0.1276, 40.7128, 74.006)); // 3461.021586418985 miles
+console.log("geoDistance", geoDistance(51.5072, 0.1276, 40.7128, 74.006, "km")); // 5569.9743239738755 km
 console.log(
   "geoDistance",
   geoDistance(51.5072, 0.1276, 40.7128, 74.006, "nautical")
-); // 3005.5511456462464
+); // 3005.5511456462464 nautical miles
 ```
 
 **round**  
@@ -198,7 +198,7 @@ console.log("round", roundDown(51.5072)); // 51
 Format currency with symbol, code, or name.
 
 ```js
-import { roundDown } from "@smitch/js-lib";
+import { formatCurrency } from "@smitch/js-lib";
 
 console.log(formatCurrency(99, "GBP")); // £99.00
 console.log(formatCurrency(99, "GBP", "code")); // GBP 99.00
