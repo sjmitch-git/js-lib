@@ -145,4 +145,17 @@ console.log("randomNumber max = 100000000", randomNumber(100000000));
 console.log("randomNumber max = 1000000000", randomNumber(1000000000));
 ```
 
----
+**geoDistance**  
+Find the distance between 2 geo locations (miles, km, nautical miles).
+
+```js
+import { geoDistance } from "@smitch/js-lib";
+
+/* London to New York */
+console.log("geoDistance", geoDistance(51.5072, 0.1276, 40.7128, 74.006));
+console.log("geoDistance", geoDistance(51.5072, 0.1276, 40.7128, 74.006, "km"));
+console.log(
+  "geoDistance",
+  geoDistance(51.5072, 0.1276, 40.7128, 74.006, "nautical")
+);
+```
