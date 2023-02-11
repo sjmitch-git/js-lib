@@ -1,5 +1,6 @@
-export const formatNumber = (number: number) => {
-  return number.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+export const formatNumber = (num: number, locale?: string) => {
+  const formatter = new Intl.NumberFormat(locale);
+  return formatter.format(num);
 };
 
 export const formatDecimals = (n: number, places: number = 2) => {

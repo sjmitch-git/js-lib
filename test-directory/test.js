@@ -11,6 +11,7 @@ import {
   formatNumber,
   geoDistance,
   formatCurrency,
+  mergeArrays,
 } from "@smitch/js-lib";
 
 /* 
@@ -39,16 +40,28 @@ let wizards = [
 ];
 
 // return all wizards whose 'tool' equals 'staff'
-console.log(filterObjects(wizards, "tool", "staff"));
+// console.log(filterObjects(wizards, "tool", "staff"));
 
 // get all wizard names whose tool equals staff
-console.log(filterObjects(wizards, "tool", "staff", "name"));
+// console.log(filterObjects(wizards, "tool", "staff", "name"));
 
 // get all wizard names
-console.log(filterObjects(wizards, "name"));
+// console.log(filterObjects(wizards, "name"));
 
 // get all wizard spells
-console.log(filterObjects(wizards, "spells"));
+// console.log(filterObjects(wizards, "spells"));
+
+// merge multiple arrays
+let spells = [
+  ["Talk to animals", "Make plants grow"],
+  ["Dancing teacups", "Turn into fish", "Talk to animals"],
+  ["You shall not pass", "Disappear"],
+];
+
+console.log(mergeArrays(spells));
+
+// remove duplicates
+console.log(mergeArrays(spells, true));
 
 /* removeDuplicates - remove duplicates from array */
 /* console.log(

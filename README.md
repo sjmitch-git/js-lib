@@ -190,12 +190,18 @@ console.log(randomColor("hsl")); // returns hsl color (hsl(299, 50%, 50%))
 ### Maths
 
 **formatNumber**  
-Format a number with commas as thousands separators.
+Format a number with language-sensitive formatting.
 
 ```js
 import { formatNumber } from "@smitch/js-lib";
 
-formatNumber(405029888); // 405,029,988
+const number = 123876456.789;
+
+console.log(formatNumber(number, "de-DE")); // "123.876.456,789"
+console.log(formatNumber(number)); // "123,876,456.789"
+console.log(formatNumber(number, "es-ES")); // "123.876.456,789"
+console.log(formatNumber(number, "ar-EG")); // "١٢٣٬٨٧٦٬٤٥٦٫٧٨٩"
+console.log(formatNumber(number, "fr-FR")); // "123 876 456,789"
 ```
 
 **formatDecimals**  
