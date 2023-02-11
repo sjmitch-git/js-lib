@@ -82,6 +82,77 @@ removeDuplicates([4, 2, 3, 1, 4, 1, 2, 5, 3, 4]); // [ 4, 2, 3, 1, 5 ]
 
 ---
 
+**filterObjects**  
+Filter an array of objects
+
+```js
+import { filterObjects } from "@smitch/js-lib";
+
+let wizards = [
+  {
+    name: "Radagast",
+    spells: ["Talk to animals", "Make plants grow"],
+    tool: "staff",
+  },
+  {
+    name: "Merlin",
+    spells: ["Dancing teacups", "Turn into fish"],
+    tool: "wand",
+  },
+  {
+    name: "Gandalf",
+    spells: ["You shall not pass", "Disappear"],
+    tool: "staff",
+  },
+];
+
+// return all wizards whose 'tool' equals 'staff'
+console.log(filterObjects(wizards, "tool", "staff"));
+/*
+[{
+  name: "Radagast",
+  spells: ["Talk to animals", "Make plants grow"],
+  tool: "staff"
+}, {
+  name: "Gandalf",
+  spells: ["You shall not pass", "Disappear"],
+  tool: "staff"
+}]
+*/
+
+// get all wizard names whose tool equals staff
+console.log(filterObjects(wizards, "tool", "staff", "name"));
+/*
+["Radagast", "Gandalf"]
+*/
+
+// get all wizard names
+console.log(filterObjects(wizards, "name"));
+/*
+["Radagast", "Merlin", "Gandalf"]
+*/
+```
+
+**mergeArrays**  
+Merge multiple arrays
+
+```js
+let spells = [
+  ["Talk to animals", "Make plants grow"],
+  ["Dancing teacups", "Turn into fish", "Talk to animals"],
+  ["You shall not pass", "Disappear"],
+];
+
+console.log(mergeArrays(spells));
+// ["Talk to animals", "Make plants grow", "Dancing teacups", "Turn into fish", "Talk to animals", "You shall not pass", "Disappear"]
+
+// remove duplicates
+console.log(mergeArrays(spells, true));
+// ["Talk to animals", "Make plants grow", "Dancing teacups", "Turn into fish", "You shall not pass", "Disappear"]
+```
+
+---
+
 ### UI
 
 **scrollTo**  
