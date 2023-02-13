@@ -18,9 +18,7 @@ import { scrollTo } from "@smitch/js-lib";
 scrollTo(id);
 ```
 
-## Functions
-
-### String
+## Strings
 
 **capitalize**  
 Capitalize the first character of a string:
@@ -69,7 +67,7 @@ pascalCase("FRED flinstone"); // Fred Flinstone
 
 ---
 
-### Array
+## Arrays
 
 **removeDuplicates**  
 Remove duplicates from array
@@ -153,7 +151,7 @@ console.log(mergeArrays(spells, true));
 
 ---
 
-### UI
+## UI
 
 **scrollTo**  
 Scroll to top of element (id).
@@ -187,7 +185,7 @@ console.log(randomColor("hsl")); // returns hsl color (hsl(299, 50%, 50%))
 
 ---
 
-### Maths
+## Maths
 
 **formatNumber**  
 Format a number with language-sensitive formatting.
@@ -197,8 +195,9 @@ import { formatNumber } from "@smitch/js-lib";
 
 const number = 123876456.789;
 
+console.log(formatNumber(number)); // format based on user's device
+
 console.log(formatNumber(number, "de-DE")); // "123.876.456,789"
-console.log(formatNumber(number)); // "123,876,456.789"
 console.log(formatNumber(number, "es-ES")); // "123.876.456,789"
 console.log(formatNumber(number, "ar-EG")); // "١٢٣٬٨٧٦٬٤٥٦٫٧٨٩"
 console.log(formatNumber(number, "fr-FR")); // "123 876 456,789"
@@ -235,7 +234,7 @@ Find the distance between 2 geo locations (miles, km, nautical miles).
 ```js
 import { geoDistance } from "@smitch/js-lib";
 
-/* London to New York */
+/* London (51.5072, 0.1276) to New York (40.7128, 74.006) */
 console.log("geoDistance", geoDistance(51.5072, 0.1276, 40.7128, 74.006)); // 3461.021586418985 miles
 console.log("geoDistance", geoDistance(51.5072, 0.1276, 40.7128, 74.006, "km")); // 5569.9743239738755 km
 console.log(
@@ -280,4 +279,27 @@ import { formatCurrency } from "@smitch/js-lib";
 console.log(formatCurrency(99, "GBP")); // £99.00
 console.log(formatCurrency(99, "GBP", "code")); // GBP 99.00
 console.log(formatCurrency(99, "GBP", "name")); // 99.00 British pounds
+```
+
+---
+
+## Date
+
+**formatDate**  
+Format a date.
+
+```js
+import { formatDate } from "@smitch/js-lib";
+
+const date = new Date("2023-12-03");
+
+console.log(formatDate(new Date(), "en-GB", "day dd/mm/yyyy")); // "Monday, 13/02/2023"
+console.log(formatDate(new Date(), "en-GB", "dd month yyyy")); // "13 February 2023"
+console.log(formatDate(new Date(), "en-GB", "day dd month yyyy")); // "Monday, 13 February 2023"
+console.log(formatDate(new Date(), "en-GB", "dd/mm/yyyy")); // "13/02/2023"
+
+console.log(formatDate(new Date(), "ru", "day dd/mm/yyyy")); // "понедельник, 13.02.2023 г."
+console.log(formatDate(new Date(), "ar-EG", "dd month yyyy")); // "١٣ فبراير ٢٠٢٣"
+console.log(formatDate(date, "es", "day dd month yyyy")); // "domingo, 3 de diciembre de 2023"
+console.log(formatDate(new Date(), "en-US", "dd/mm/yyyy")); // "2/13/2023"
 ```

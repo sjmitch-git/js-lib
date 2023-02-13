@@ -12,6 +12,7 @@ import {
   geoDistance,
   formatCurrency,
   mergeArrays,
+  formatDate,
 } from "@smitch/js-lib";
 
 /* 
@@ -58,10 +59,10 @@ let spells = [
   ["You shall not pass", "Disappear"],
 ];
 
-console.log(mergeArrays(spells));
+// console.log(mergeArrays(spells));
 
 // remove duplicates
-console.log(mergeArrays(spells, true));
+// console.log(mergeArrays(spells, true));
 
 /* removeDuplicates - remove duplicates from array */
 /* console.log(
@@ -129,7 +130,13 @@ console.log("randomNumber max = 1000000000", randomNumber(1000000000));
 console.log("randomNumber max = 1000000000", randomNumber(255)); */
 
 /* formatNumber */
-// console.log("formatNumber", formatNumber(randomNumber(1000000000)));
+const number = 123876456.789;
+
+// console.log(formatNumber(number, "de-DE")); // "123.876.456,789"
+// console.log(formatNumber(number)); // "123,876,456.789"
+// console.log(formatNumber(number, "es-ES")); // "123.876.456,789"
+//console.log(formatNumber(number, "ar-EG")); // "١٢٣٬٨٧٦٬٤٥٦٫٧٨٩"
+//console.log(formatNumber(number, "fr-FR")); // "123 876 456,789"
 
 /* geoDistance */
 /* London to New York */
@@ -143,3 +150,15 @@ console.log(
 /* console.log(formatCurrency(99, "INR"));
 console.log(formatCurrency(99.54, "INR", "code"));
 console.log(formatCurrency(99.54, "INR", "name")); */
+
+const date = new Date("2023-12-03");
+
+console.log(formatDate(new Date(), "en-GB", "day dd/mm/yyyy")); // "Monday, 13/02/2023"
+console.log(formatDate(new Date(), "en-GB", "dd month yyyy")); // "13 February 2023"
+console.log(formatDate(new Date(), "en-GB", "day dd month yyyy")); // "Monday, 13 February 2023"
+console.log(formatDate(new Date(), "en-GB", "dd/mm/yyyy")); // "13/02/2023"
+
+console.log(formatDate(new Date(), "ru", "day dd/mm/yyyy")); // "понедельник, 13.02.2023 г."
+console.log(formatDate(new Date(), "ar-EG", "dd month yyyy")); // "١٣ فبراير ٢٠٢٣"
+console.log(formatDate(date, "es", "day dd month yyyy")); // "domingo, 3 de diciembre de 2023"
+console.log(formatDate(new Date(), "en-US", "dd/mm/yyyy")); // "2/13/2023"
