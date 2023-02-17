@@ -8,7 +8,6 @@ export const formatDate = (date: number, locale: string, format?: string) => {
           month: "numeric",
           day: "numeric",
         };
-        break;
       case "long":
       case "day dd month yyyy":
         return {
@@ -17,7 +16,6 @@ export const formatDate = (date: number, locale: string, format?: string) => {
           month: "long",
           day: "numeric",
         };
-        break;
       case "short":
       case "dd month yyyy":
         return {
@@ -25,7 +23,6 @@ export const formatDate = (date: number, locale: string, format?: string) => {
           month: "long",
           day: "numeric",
         };
-        break;
       case "time":
         return {
           hour: "numeric",
@@ -33,7 +30,6 @@ export const formatDate = (date: number, locale: string, format?: string) => {
           second: "numeric",
           hour12: false,
         };
-        break;
       case "dd/mm/yyyy":
       default:
         return {

@@ -303,3 +303,15 @@ console.log(formatDate(new Date(), "ar-EG", "dd month yyyy")); // "١٣ فبرا
 console.log(formatDate(date, "es", "day dd month yyyy")); // "domingo, 3 de diciembre de 2023"
 console.log(formatDate(new Date(), "en-US", "dd/mm/yyyy")); // "2/13/2023"
 ```
+
+**currentTime**  
+Get current time by timezone.
+[Timezone reference](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+
+```js
+import { currentTime } from "@smitch/js-lib";
+
+console.log("current time", currentTime("Asia/Tokyo"));
+console.log("current time", currentTime("Europe/Athens"));
+console.log("current time", currentTime("Europe/Paris", "ar-EG"));
+```

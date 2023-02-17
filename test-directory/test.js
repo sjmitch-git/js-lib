@@ -13,6 +13,7 @@ import {
   formatCurrency,
   mergeArrays,
   formatDate,
+  currentTime,
 } from "@smitch/js-lib";
 
 /* 
@@ -153,12 +154,17 @@ console.log(formatCurrency(99.54, "INR", "name")); */
 
 const date = new Date("2023-12-03");
 
-console.log(formatDate(new Date(), "en-GB", "day dd/mm/yyyy")); // "Monday, 13/02/2023"
-console.log(formatDate(new Date(), "en-GB", "dd month yyyy")); // "13 February 2023"
-console.log(formatDate(new Date(), "en-GB", "day dd month yyyy")); // "Monday, 13 February 2023"
-console.log(formatDate(new Date(), "en-GB", "dd/mm/yyyy")); // "13/02/2023"
+//console.log(formatDate(new Date(), "en-GB", "day dd/mm/yyyy")); // "Monday, 13/02/2023"
+//console.log(formatDate(new Date(), "en-GB", "dd month yyyy")); // "13 February 2023"
+//console.log(formatDate(new Date(), "en-GB", "day dd month yyyy")); // "Monday, 13 February 2023"
+//console.log(formatDate(new Date(), "en-GB", "dd/mm/yyyy")); // "13/02/2023"
 
-console.log(formatDate(new Date(), "ru", "day dd/mm/yyyy")); // "понедельник, 13.02.2023 г."
-console.log(formatDate(new Date(), "ar-EG", "dd month yyyy")); // "١٣ فبراير ٢٠٢٣"
-console.log(formatDate(date, "es", "day dd month yyyy")); // "domingo, 3 de diciembre de 2023"
-console.log(formatDate(new Date(), "en-US", "dd/mm/yyyy")); // "2/13/2023"
+//console.log(formatDate(new Date(), "ru", "day dd/mm/yyyy")); // "понедельник, 13.02.2023 г."
+//console.log(formatDate(new Date(), "ar-EG", "dd month yyyy")); // "١٣ فبراير ٢٠٢٣"
+//console.log(formatDate(date, "es", "day dd month yyyy")); // "domingo, 3 de diciembre de 2023"
+//console.log(formatDate(new Date(), "en-US", "dd/mm/yyyy")); // "2/13/2023"
+
+console.log("current time", currentTime());
+console.log("current time", currentTime("Europe/Paris", "ar-EG"));
+console.log("current time", currentTime("Asia/Tokyo"));
+console.log("current time", currentTime("Europe/Athens"));
