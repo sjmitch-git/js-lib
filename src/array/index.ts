@@ -1,3 +1,4 @@
-export { removeDuplicates } from "./remove-duplicates";
-export { filterObjects } from "./filter-objects";
-export { mergeArrays } from "./merge-arrays";
+export * from "./remove-duplicates";
+export * from "./filter-objects";
+export * from "./merge-arrays";
+export * from "./shuffle";
