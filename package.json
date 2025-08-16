@@ -5,9 +5,10 @@
   "author": "Stephen Mitchell <sjmitch20@outlook.com>",
   "license": "MIT",
   "scripts": {
-    "compile": "rm -rf dist/lib && tsc && tsc --build tsconfig.es5.json"
+    "compile": "rm -rf dist/lib && tsc && tsc --build tsconfig.es5.json && cpx README.md dist"
   },
   "devDependencies": {
+    "cpx": "^1.5.0",
     "parcel": "^2.5.0",
     "typescript": "^4.6.3"
   }
