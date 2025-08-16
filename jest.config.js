@@ -8,7 +8,6 @@ module.exports = {
     "^.+\\.(js|jsx)$": "babel-jest",
   },
   transformIgnorePatterns: [],
-  extensionsToTreatAsEsm: [".ts", ".tsx", ".js"],
   moduleNameMapper: {
     "^(\\.{1,2}/.*)\\.js$": "$1", // Strip .js extensions for ESM imports
   },
