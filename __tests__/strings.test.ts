@@ -11,7 +11,7 @@ import {
   toggleCase,
   dotCase,
   constantCase,
-} from "../dist/lib/es6";
+} from "../dist/lib/es6/index.js";
 
 describe("String Utilities", () => {
   test("capitalize", () => {
