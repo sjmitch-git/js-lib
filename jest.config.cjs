@@ -1,11 +1,10 @@
 module.exports = {
   preset: "ts-jest",
   testEnvironment: "jsdom",
-  moduleDirectories: ["node_modules", "dist/lib/es6"],
+  moduleDirectories: ["node_modules", "src"], // Focus on src for testing
   testMatch: ["**/__tests__/**/*.ts", "**/?(*.)+(spec|test).ts"],
   transform: {
     "^.+\\.(ts|tsx)$": ["ts-jest", { useESM: true }],
-    "^.+\\.(js|jsx)$": "babel-jest",
   },
   transformIgnorePatterns: [],
   moduleNameMapper: {

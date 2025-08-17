@@ -27,20 +27,8 @@ jobs:
       - name: Install dependencies
         run: npm ci || npm install --legacy-peer-deps --force
 
-      - name: Verify fs-extra installation
-        run: ls -la node_modules/fs-extra || echo "fs-extra not found in node_modules"
-
-      - name: Verify README in root
-        run: ls -la README.md || ls -la *.md || echo "README.md not found in root"
-
       - name: Compile
         run: npm run compile
-
-      - name: List dist contents
-        run: ls -la dist
-
-      - name: Verify README contents
-        run: cat dist/README.md || echo "README.md not found in dist"
 
       - name: Upload dist artifact
         uses: actions/upload-artifact@v4
@@ -77,24 +65,6 @@ jobs:
         with:
           name: dist-artifact
           path: dist/
-
-      - name: Verify fs-extra installation
-        run: ls -la node_modules/fs-extra || echo "fs-extra not found in node_modules"
-
-      - name: Verify README in root
-        run: ls -la README.md || ls -la *.md || echo "README.md not found in root"
-
-      - name: List dist contents
-        run: ls -la dist
-
-      - name: Verify README contents
-        run: cat dist/README.md || echo "README.md not found in dist"
-
-      - name: Check package contents
-        run: |
-          cd dist
-          npm pack --dry-run
-          tar -tvf *.tgz | grep README.md || echo "README.md not found in package"
 
       - name: Publish to npm
         run: cd dist && npm publish --access public

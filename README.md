@@ -199,6 +199,16 @@ console.log(mergeArrays(spells, true));
 // ["Talk to animals", "Make plants grow", "Dancing teacups", "Turn into fish", "You shall not pass", "Disappear"]
 ```
 
+**shuffleArray** Randomizes array order:
+
+```js
+import { shuffleArray } from "@smitch/js-lib";
+
+const input = [1, 2, 3, 4, 5];
+
+console.log(shuffleArray(input)); // e.g., [3, 1, 5, 2, 4] (random order)
+```
+
 ## UI
 
 **scrollTo** Scroll to top of element (id):

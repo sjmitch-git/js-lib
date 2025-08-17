@@ -1,12 +1,13 @@
 export const formatCurrency = (
-  num: number,
+  amount: number,
   currency: string,
-  currencyDisplay: string
-) => {
-  const formatter = new Intl.NumberFormat(undefined, {
-    style: "currency",
-    currency: currency,
-    currencyDisplay: currencyDisplay,
-  });
-  return formatter.format(num);
+  currencyDisplay: 'symbol' | 'code' | 'name' = 'symbol'
+): string => {
+  const formatted = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency,
+    currencyDisplay,
+  }).format(amount);
+  // Normalize spaces to ensure consistent output
+  return formatted.replace(/\s+/g, ' ').trim();
 };
