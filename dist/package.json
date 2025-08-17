@@ -1,6 +1,6 @@
 {
   "name": "@smitch/js-lib",
-  "version": "0.3.25",
+  "version": "0.3.23",
   "type": "module",
   "description": "A set of JavaScript utils",
   "main": "lib/es5/index.js",
