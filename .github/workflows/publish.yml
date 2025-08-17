@@ -25,7 +25,13 @@ jobs:
         run: npm cache clean --force
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci || npm install --legacy-peer-deps --force
+
+      - name: Verify fs-extra installation
+        run: ls -la node_modules/fs-extra || echo "fs-extra not found in node_modules"
+
+      - name: Verify README in root
+        run: ls -la README.md || ls -la *.md || echo "README.md not found in root"
 
       - name: Compile
         run: npm run compile
@@ -35,6 +41,13 @@ jobs:
 
       - name: Verify README contents
         run: cat dist/README.md || echo "README.md not found in dist"
+
+      - name: Upload dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-artifact
+          path: dist/
+          retention-days: 1
 
   publish:
     needs: build
@@ -57,7 +70,19 @@ jobs:
         run: npm cache clean --force
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci || npm install --legacy-peer-deps --force
+
+      - name: Download dist artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-artifact
+          path: dist/
+
+      - name: Verify fs-extra installation
+        run: ls -la node_modules/fs-extra || echo "fs-extra not found in node_modules"
+
+      - name: Verify README in root
+        run: ls -la README.md || ls -la *.md || echo "README.md not found in root"
 
       - name: List dist contents
         run: ls -la dist
@@ -66,9 +91,12 @@ jobs:
         run: cat dist/README.md || echo "README.md not found in dist"
 
       - name: Check package contents
-        run: npm pack --dry-run ./dist
+        run: |
+          cd dist
+          npm pack --dry-run
+          tar -tvf *.tgz | grep README.md || echo "README.md not found in package"
 
       - name: Publish to npm
         run: cd dist && npm publish --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN  }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
