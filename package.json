@@ -6,19 +6,18 @@
   "author": "Stephen Mitchell <sjmitch20@outlook.com>",
   "license": "MIT",
   "scripts": {
-    "compile": "rm -rf dist/lib && tsc && tsc --build tsconfig.es5.json && cpx README.md dist",
+    "compile": "rm -rf dist/lib && tsc && tsc --build tsconfig.es5.json && node copy-readme.mjs",
     "test": "jest"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.25.4",
+    "@babel/preset-typescript": "^7.24.7",
     "@types/jest": "^30.0.0",
-    "cpx": "^1.5.0",
+    "babel-jest": "^30.0.0",
     "jest": "^30.0.5",
     "jest-environment-jsdom": "^30.0.5",
     "parcel": "^2.5.0",
     "ts-jest": "^29.2.5",
-    "typescript": "^5.2.2",
-    "babel-jest": "^30.0.0",
-    "@babel/preset-env": "^7.25.4",
-    "@babel/preset-typescript": "^7.24.7"
+    "typescript": "^5.2.2"
   }
 }

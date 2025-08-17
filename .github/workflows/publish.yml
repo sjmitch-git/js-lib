@@ -3,7 +3,7 @@ name: Publish to npm
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -28,7 +28,7 @@ jobs:
   publish:
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
