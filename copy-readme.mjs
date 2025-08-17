@@ -3,8 +3,8 @@ import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const source = join(__dirname, "../README.md");
-const dest = join(__dirname, "../dist/README.md");
+const source = join(__dirname, "README.md");
+const dest = join(__dirname, "dist/README.md");
 
 try {
   await fs.ensureFile(dest); // Ensure destination file can be created
