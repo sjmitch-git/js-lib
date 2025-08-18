@@ -1,8 +1,28 @@
 # js-lib
 
-A set of JavaScript utilities
+A lightweight, modern JavaScript utility library designed to simplify common tasks in string
+manipulation, array processing, UI interactions, mathematical operations, and date formatting. Built
+for developers who need reliable, easy-to-use functions for web and Node.js applications **js-lib**
+offers a robust set of tools with a focus on performance and simplicity.
 
-## Install
+## Features
+
+- **String Manipulation:** Transform strings with ease using functions like `capitalize`,
+  `camelCase`, `snakeCase`, `kebabCase`, `pascalCase`, `slugify`, and more.`
+- **Array Utilities:** Efficiently manage arrays with `removeDuplicates`, `filterObjects`,
+  `mergeArrays`, and `shuffleArray`.
+- **UI Helpers:** Enhance user experience with smooth scrolling (`scrollTo`, `scrollToBottom`) and
+  dynamic color generation (`randomColor`). **Math Operations:** Format numbers, currencies, and
+  calculate distances with formatNumber, formatCurrency, geoDistance, and precise rounding
+  functions. **Date Formatting:** Handle dates effortlessly with `formatDate` for locale-specific
+  formatting and `currentTime` for timezone-aware time retrieval. **TypeScript Support:** Fully
+  typed for seamless integration in TypeScript projects. **Zero Dependencies:** Lightweight and
+  dependency-free for minimal bundle size. **CI/CD Tested:** Rigorously tested with Jest and
+  published to npm via GitHub Actions.
+
+## Installation
+
+Install `js-lib` via npm:
 
 ```shell
 npm i @smitch/js-lib
@@ -10,15 +30,21 @@ npm i @smitch/js-lib
 
 ## Usage
 
-In component:
+Import and use the utilities in your JavaScript or TypeScript project:
 
 ```js
-import { scrollTo } from "@smitch/js-lib";
+import { scrollTo, capitalize } from "@smitch/js-lib";
 
-scrollTo(id);
+// Scroll to an element by ID
+scrollTo("my-element");
+
+// Capitalize a string
+console.log(capitalize("fRED")); // "Fred"
 ```
 
-## Strings
+## API Reference
+
+### Strings
 
 **capitalize** Capitalize the first character of a string:
 
@@ -123,9 +149,9 @@ constantCase("FRED flinstone"); // "FRED_FLINSTONE"
 constantCase("helloWorld"); // "HELLO_WORLD"
 ```
 
-## Arrays
+### Arrays
 
-**removeDuplicates** Remove duplicates from array:
+**removeDuplicates** Removes duplicates from an array while preserving order:
 
 ```js
 import { removeDuplicates } from "@smitch/js-lib";
@@ -133,7 +159,7 @@ import { removeDuplicates } from "@smitch/js-lib";
 removeDuplicates([4, 2, 3, 1, 4, 1, 2, 5, 3, 4]); // [4, 2, 3, 1, 5]
 ```
 
-**filterObjects** Filter an array of objects:
+**filterObjects** Filters an array of objects by a key-value pair or extracts specific keys:
 
 ```js
 import { filterObjects } from "@smitch/js-lib";
@@ -209,7 +235,7 @@ const input = [1, 2, 3, 4, 5];
 console.log(shuffleArray(input)); // e.g., [3, 1, 5, 2, 4] (random order)
 ```
 
-## UI
+### UI
 
 **scrollTo** Scroll to top of element (id):
 
@@ -238,7 +264,7 @@ console.log(randomColor("rgb")); // returns rgb color (rgb(119,73,119))
 console.log(randomColor("hsl")); // returns hsl color (hsl(299, 50%, 50%))
 ```
 
-## Maths
+### Maths
 
 **formatNumber** Format a number with language-sensitive formatting:
 
@@ -322,7 +348,7 @@ console.log(formatCurrency(99, "GBP", "code")); // GBP 99.00
 console.log(formatCurrency(99, "GBP", "name")); // 99.00 British pounds
 ```
 
-## Date
+### Date
 
 **formatDate** Format a date:
 
