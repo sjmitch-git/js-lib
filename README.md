@@ -9,16 +9,19 @@ offers a robust set of tools with a focus on performance and simplicity.
 
 - **String Manipulation:** Transform strings with ease using functions like `capitalize`,
   `camelCase`, `snakeCase`, `kebabCase`, `pascalCase`, `slugify`, and more.`
+- **Object Manipulation**: Manage objects with utilities like `deepClone` for immutable copies and `pick` for selecting specific properties.
 - **Array Utilities:** Efficiently manage arrays with `removeDuplicates`, `filterObjects`,
   `mergeArrays`, and `shuffleArray`.
 - **UI Helpers:** Enhance user experience with smooth scrolling (`scrollTo`, `scrollToBottom`) and
-  dynamic color generation (`randomColor`). **Math Operations:** Format numbers, currencies, and
+  dynamic color generation (`randomColor`).
+- **Math Operations:** Format numbers, currencies, and
   calculate distances with formatNumber, formatCurrency, geoDistance, and precise rounding
-  functions. **Date Formatting:** Handle dates effortlessly with `formatDate` for locale-specific
-  formatting and `currentTime` for timezone-aware time retrieval. **TypeScript Support:** Fully
-  typed for seamless integration in TypeScript projects. **Zero Dependencies:** Lightweight and
-  dependency-free for minimal bundle size. **CI/CD Tested:** Rigorously tested with Jest and
-  published to npm via GitHub Actions.
+  functions.
+- **Date Formatting:** Handle dates effortlessly with `formatDate` for locale-specific
+  formatting and `currentTime` for timezone-aware time retrieval.
+- **TypeScript Support:** Fully typed for seamless integration in TypeScript projects.
+- **Zero Dependencies:** Lightweight and dependency-free for minimal bundle size.
+- **CI/CD Tested:** Rigorously tested with Jest and published to npm via GitHub Actions.
 
 ## Installation
 
@@ -147,6 +150,37 @@ import { constantCase } from "@smitch/js-lib";
 
 constantCase("FRED flinstone"); // "FRED_FLINSTONE"
 constantCase("helloWorld"); // "HELLO_WORLD"
+```
+
+**truncate:** Truncates a string to the specified number of characters, appending a default ellipsis (...) or custom suffix. Trailing spaces are removed before appending the suffix.
+
+```js
+import { truncate } from "@smitch/js-lib";
+
+truncate("The quick brown fox", 10); // "The quick..."
+truncate("The quick brown fox", 10, " ...more"); // "The quick ...more"
+truncate("Hi", 10); // "Hi"
+```
+
+### Objects
+
+**deepClone:** Creates a deep copy of an object or array, preventing mutations to the original.
+```js
+import { deepClone } from "@smitch/js-lib";
+
+const obj = { name: "Gandalf", spells: { fire: "Flame of Anor" } };
+const clone = deepClone(obj);
+clone.spells.fire = "Dragon's Breath";
+console.log(obj.spells.fire); // "Flame of Anor" (original unchanged)
+console.log(clone.spells.fire); // "Dragon's Breath"
+```
+
+**pick:** Extracts specified keys from an object, returning a new object.
+```js
+import { pick } from "@smitch/js-lib";
+
+const obj = { name: "Gandalf", age: 300, tool: "staff" };
+pick(obj, ["name", "tool"]); // { name: "Gandalf", tool: "staff" }
 ```
 
 ### Arrays

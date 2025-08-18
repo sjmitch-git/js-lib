@@ -11,6 +11,7 @@ import {
   toggleCase,
   dotCase,
   constantCase,
+  truncate,
 } from "../src/index.js";
 
 describe("String Utilities", () => {
@@ -79,5 +80,15 @@ describe("String Utilities", () => {
     expect(constantCase("FRED flinstone")).toBe("FRED_FLINSTONE");
     expect(constantCase("helloWorld")).toBe("HELLO_WORLD");
     expect(constantCase("")).toBe("");
+  });
+
+  test("truncates string to specified length with default ellipsis", () => {
+    expect(truncate("The quick brown fox", 10)).toBe("The quick...");
+  });
+  test("truncates with custom suffix", () => {
+    expect(truncate("The quick brown fox", 10, " ...more")).toBe("The quick ...more");
+  });
+  test("returns original string if length is sufficient", () => {
+    expect(truncate("Hi", 10)).toBe("Hi");
   });
 });

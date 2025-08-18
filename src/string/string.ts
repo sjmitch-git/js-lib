@@ -185,3 +185,9 @@ export const constantCase = (str: string): string => {
     .toUpperCase()
     .trim();
 };
+
+export const truncate = (str: string, maxLength: number, suffix: string = "..."): string => {
+  if (typeof str !== "string" || str.length <= maxLength) return str;
+  const sliced = str.slice(0, maxLength).trimEnd();
+  return sliced + suffix;
+};
