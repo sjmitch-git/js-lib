@@ -15,8 +15,8 @@ offers a robust set of tools with a focus on performance and simplicity.
   `mergeArrays`, and `shuffleArray`.
 - **UI Helpers:** Enhance user experience with smooth scrolling (`scrollTo`, `scrollToBottom`) and
   dynamic color generation (`randomColor`).
-- **Math Operations:** Format numbers, currencies with `formatNumber`, `formatCurrency`, and precise
-  rounding functions.
+- **Maths Operations:** Format numbers, currencies with `formatNumber`, `formatCurrency`, and
+  precise rounding functions.
 - **Geo Operations**: Calculate distances, centroids, bearings, directions, and proximity with
   `geoDistance`, `geoMidpoint`, `geoBearing`, `geoDirection`, and `isWithinRadius`.
 - **Date Formatting:** Handle dates effortlessly with `formatDate` for locale-specific formatting
@@ -342,17 +342,6 @@ console.log("randomNumber max = 1000000000", randomNumber(1000000000));
 console.log("randomNumber max = 255", randomNumber(255));
 ```
 
-**geoDistance** Find the distance between 2 geo locations (miles, km, nautical miles):
-
-```js
-import { geoDistance } from "@smitch/js-lib";
-
-// London (51.5072, 0.1276) to New York (40.7128, 74.006)
-console.log("geoDistance", geoDistance(51.5072, 0.1276, 40.7128, 74.006)); // 3461.021586418985 miles
-console.log("geoDistance", geoDistance(51.5072, 0.1276, 40.7128, 74.006, "km")); // 5569.9743239738755 km
-console.log("geoDistance", geoDistance(51.5072, 0.1276, 40.7128, 74.006, "nautical")); // 3005.5511456462464 nautical miles
-```
-
 **round** Round number to nearest integer:
 
 ```js
@@ -385,6 +374,61 @@ import { formatCurrency } from "@smitch/js-lib";
 console.log(formatCurrency(99, "GBP")); // £99.00
 console.log(formatCurrency(99, "GBP", "code")); // GBP 99.00
 console.log(formatCurrency(99, "GBP", "name")); // 99.00 British pounds
+```
+
+### Geo
+
+**geoDistance** Find the distance between 2 geo locations (miles, km, nautical miles):
+
+```js
+import { geoDistance } from "@smitch/js-lib";
+
+// London (51.5072, 0.1276) to New York (40.7128, 74.006)
+console.log("geoDistance", geoDistance(51.5072, 0.1276, 40.7128, 74.006)); // 3461.02 miles
+console.log("geoDistance", geoDistance(51.5072, 0.1276, 40.7128, 74.006, "km")); // 5569.97 km
+console.log("geoDistance", geoDistance(51.5072, 0.1276, 40.7128, 74.006, "nautical")); // 3005.55 nautical miles
+```
+
+**geoMidpoint** Find the midpoint (centroid) between two or more geo points:
+
+```js
+import { geoMidpoint } from "@smitch/js-lib";
+
+// Midpoint between London and Paris
+console.log(
+  geoMidpoint([
+    { lat: 51.5074, lon: -0.1278 },
+    { lat: 48.8566, lon: 2.3522 },
+  ])
+); // { lat: 50.1886, lon: 1.1466 }
+```
+
+**geoBearing** Calculate the initial bearing from one point to another (in degrees):
+
+```js
+import { geoBearing } from "@smitch/js-lib";
+
+// Bearing from London to Paris
+console.log(geoBearing(51.5074, -0.1278, 48.8566, 2.3522)); // 149.55
+```
+
+**geoDirection** Get the compass direction (e.g., N, NE, E, SE, S, SW, W, NW) from one point to
+another:
+
+```js
+import { geoDirection } from "@smitch/js-lib";
+
+// Direction from London to Paris
+console.log(geoDirection(51.5074, -0.1278, 48.8566, 2.3522)); // "SE"
+```
+
+**isWithinRadius** Check if two points are within a given radius (miles, km, or nautical miles):
+
+```js
+import { isWithinRadius } from "@smitch/js-lib";
+
+// Are two points within 10 miles?
+console.log(isWithinRadius(51.5074, -0.1278, 51.5007, -0.1246, 10, "miles")); // true
 ```
 
 ### Date
