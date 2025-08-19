@@ -4,3 +4,4 @@ export * from "./maths";
 export * from "./ui";
 export * from "./date";
 export * from "./object";
+export * from "./geo";
