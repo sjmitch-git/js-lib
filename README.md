@@ -8,7 +8,7 @@ offers a robust set of tools with a focus on performance and simplicity.
 ## Features
 
 - **String Manipulation:** Transform strings with ease using functions like `capitalize`,
-  `camelCase`, `snakeCase`, `kebabCase`, `pascalCase`, `slugify`, and more.`
+  `camelCase`, `snakeCase`, `kebabCase`, `pascalCase`, `slugify`.
 - **Object Manipulation**: Manage objects with utilities like `deepClone` for immutable copies and
   `pick` for selecting specific properties.
 - **Array Utilities:** Efficiently manage arrays with `removeDuplicates`, `filterObjects`,
